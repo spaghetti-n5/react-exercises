@@ -47,16 +47,10 @@ class App extends Component {
   /*adding sudo selectors with Radium ':hover', in quotation mark because start with : */
   /*I have to add now the set of style in my hover state so a js object */
   render() {
-   const style = {
-     backgroundColor: 'green',
-     color: 'white',
-     font: 'inherit',
-     border: '1px solid blue',
-     padding:'8px',
-     cursor:'pointer'
-   };
 
    let persons = null;
+   let btnClass = '';
+
    if (this.state.showPersons) {
      persons = (
       <div>
@@ -70,16 +64,15 @@ class App extends Component {
         })}
       </div>
     );
-    /*Set the style dynamically*/
-    style.backgroundColor = 'red';
-   }
+      btnClass = classes.Red;
+  }
 
    /*Push the CSS classes not as string but as property of the classes object created*/
    const assignedClasses =[];
    if (this.state.persons.length <= 2) {
      assignedClasses.push(classes.red); //classes = ['red']
    }
-   if (this.state.persons.length <=1) {
+   if (this.state.persons.length <= 1) {
      assignedClasses.push(classes.bold); //classes = ['red', 'bold']
    }
 
@@ -90,7 +83,7 @@ class App extends Component {
           <h1>Hi I am react app</h1>
           <p className={assignedClasses.join(" ")}>This is working</p>
           <button
-            style={style}
+            className = {btnClass}
             onClick = {this.togglePersonsHandler}>Toggle Persons</button>
             {persons}
          </div>
