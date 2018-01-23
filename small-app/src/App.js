@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-//I have to import the component I created
-import Person from './Person/Person';
+//Import a JS object, called for example classes, that contains the css classes (in App.css file) as properties
+import classes from './App.css';
+import Person from './Person/Person'; //Import the component I created
 
 class App extends Component {
   state = {
@@ -74,21 +74,21 @@ class App extends Component {
     style.backgroundColor = 'red';
    }
 
-   /*Setting CSS class to the paragraph dinamically, related to the number of persons are displayed*/
-   /*I have than to join the array Classes to create a real CSS class*/
-   const classes =[];
+   /*Push the CSS classes not as string but as property of the classes object created*/
+   const assignedClasses =[];
    if (this.state.persons.length <= 2) {
-     classes.push("red"); //classes = ['red']
+     assignedClasses.push(classes.red); //classes = ['red']
    }
    if (this.state.persons.length <=1) {
-     classes.push("bold"); //classes = ['red', 'bold']
+     assignedClasses.push(classes.bold); //classes = ['red', 'bold']
    }
 
-   /*<styleRoot>when using mediaquery*/
+   /*Assign to the div the .App class not as string*/
+  /*I have than to join the array Classes to create a real CSS class*/
     return (
-        <div className="App">
+        <div className={classes.App}>
           <h1>Hi I am react app</h1>
-          <p className={classes.join(" ")}>This is working</p>
+          <p className={assignedClasses.join(" ")}>This is working</p>
           <button
             style={style}
             onClick = {this.togglePersonsHandler}>Toggle Persons</button>
