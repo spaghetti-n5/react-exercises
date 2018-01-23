@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 //Import a JS object, called for example classes, that contains the css classes (in App.css file) as properties
 import classes from './App.css';
-import Person from './Person/Person'; //Import the component I created
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import Person from '../components/Persons/Person/Person';
 
 class App extends Component {
   state = {
@@ -36,8 +35,6 @@ class App extends Component {
       ...this.state.persons[personIndex]
     };
 
-    // const person = Object.assign({}, this.state.persons[personIndex]);
-
     person.name = event.target.value;
 
     const persons = [...this.state.persons];
@@ -45,8 +42,7 @@ class App extends Component {
 
     this.setState( { persons: persons } );
   }
-  /*adding sudo selectors with Radium ':hover', in quotation mark because start with : */
-  /*I have to add now the set of style in my hover state so a js object */
+
   render() {
 
    let persons = null;
@@ -56,13 +52,12 @@ class App extends Component {
      persons = (
       <div>
         {this.state.persons.map((person, index) => {
-          return <ErrorBoundary key={person.id}>
-                  <Person
+          return    <Person
                     click={()=> this.deletePersonsHandler(index)}
                     name={person.name}
                     age={person.age}
+                    key={person.id}
                     changed={( event ) => this.nameChangedHandler( event, person.id )}/>
-                </ErrorBoundary>
         })}
       </div>
     );
@@ -93,5 +88,4 @@ class App extends Component {
   }
 }
 
-/*I wrap my component with Radium that will inject the new property, it can be used in all components*/
 export default App;
