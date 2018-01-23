@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-//I import the Radium package that permits to use sudo CSS property (like hover)
-import Radium, { StyleRoot } from 'radium';
 //I have to import the component I created
 import Person from './Person/Person';
 
@@ -55,11 +53,7 @@ class App extends Component {
      font: 'inherit',
      border: '1px solid blue',
      padding:'8px',
-     cursor:'pointer',
-     ':hover': {
-       backgroundColor: 'lightgreen',
-       color: 'black'
-     }
+     cursor:'pointer'
    };
 
    let persons = null;
@@ -78,14 +72,7 @@ class App extends Component {
     );
     /*Set the style dynamically*/
     style.backgroundColor = 'red';
-    style[':hover'] = {
-      backgroundColor: 'salmon',
-      color: 'black'
-    }
    }
-
-   /*CSS list we assign using array, joining the string*/
-   /*const classes =['red','bold'].join(' ');*/
 
    /*Setting CSS class to the paragraph dinamically, related to the number of persons are displayed*/
    /*I have than to join the array Classes to create a real CSS class*/
@@ -99,7 +86,6 @@ class App extends Component {
 
    /*<styleRoot>when using mediaquery*/
     return (
-      <StyleRoot>
         <div className="App">
           <h1>Hi I am react app</h1>
           <p className={classes.join(" ")}>This is working</p>
@@ -108,10 +94,9 @@ class App extends Component {
             onClick = {this.togglePersonsHandler}>Toggle Persons</button>
             {persons}
          </div>
-      </StyleRoot>
     );
   }
 }
 
 /*I wrap my component with Radium that will inject the new property, it can be used in all components*/
-export default Radium(App);
+export default App;
