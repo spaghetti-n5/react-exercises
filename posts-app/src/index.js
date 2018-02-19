@@ -5,6 +5,11 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 
+//Default global configuration for axios:
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com'; //When sending request to the same URL
+axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 //use(request configuration); always need to return the request, otherwise will be blocked
 axios.interceptors.request.use(request => {
   console.log(request);
