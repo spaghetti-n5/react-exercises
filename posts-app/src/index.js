@@ -22,7 +22,7 @@ axios.interceptors.request.use(request => {
 });
 
 //interceptors for handling response
-axios.interceptors.request.use(response => {
+axios.interceptors.response.use(response => {
   console.log(response);
   return response;
 },error => {
