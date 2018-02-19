@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import axios from 'axios'; //Still use the global axios object
 
 import './NewPost.css';
 
