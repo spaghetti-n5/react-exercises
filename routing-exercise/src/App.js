@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { BrowserRouter } from 'react-router-dom';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -10,6 +10,16 @@ class App extends Component {
     return (
       //<BrowserRouter>
         <div className="App">
+          <header>
+            <nav>
+              <ul>
+                <li style={{display: 'inline-block', margin:'10px'}}>
+                    <NavLink to="/users" style={{textDecoration:'none'}}> Users </NavLink></li>
+                <li style={{display: 'inline-block', margin:'10px'}}>
+                    <NavLink to="/courses" style={{textDecoration:'none'}}> Courses </NavLink></li>
+              </ul>
+            </nav>
+          </header>
           <ol style={{textAlign: 'left'}}>
             <li>Add Routes to load "Users" and "Courses" on different pages (by entering a URL, without Links)</li>
             <li>Add a simple navigation with two links => One leading to "Users", one leading to "Courses"</li>
