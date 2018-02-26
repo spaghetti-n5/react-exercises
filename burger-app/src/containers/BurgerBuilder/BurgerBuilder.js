@@ -30,6 +30,8 @@ class BurgerBuilder extends Component {
 
   //Retrieving Data from the Backend for ingredients
   componentDidMount () {
+    console.log(this.props);
+
     axios.get('https://react-burger-app-f8dd9.firebaseio.com/ingredients.json')
         .then (response => {
           this.setState({ingredients: response.data});
@@ -91,28 +93,28 @@ class BurgerBuilder extends Component {
 
   purchaseContinueHandler = () => {
     //alert('You continue');
-    this.setState({loading: true});
-    const order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      costumer: {
-          name: 'Peter Tomson',
-          address: {
-              street: 'Teststreet 34',
-              zipCode: '17755',
-              Country: 'NYC'
-          },
-          email: 'test@test.com'
-      },
-      deliveryMethod: 'fastest'
-    }
-    axios.post('/orders.json', order) //Endpoint to POST with Firebase
-        .then(response => {
-          this.setState({loading: false, purchasing: false});
-        })
-        .catch(error => {
-          this.setState({loading: false, purchasing: false});
-        })
+    //this.setState({loading: true});
+    //const order = {
+      //ingredients: this.state.ingredients,
+      //price: this.state.totalPrice,
+      //costumer: {
+          //name: 'Peter Tomson',
+          //address: {
+              //street: 'Teststreet 34',
+              //zipCode: '17755',
+              //Country: 'NYC'
+          //},
+          //email: 'test@test.com'
+      //},
+      //deliveryMethod: 'fastest'
+    //}
+    //axios.post('/orders.json', order) //Endpoint to POST with Firebase
+        //.then(response => {
+          //this.setState({loading: false, purchasing: false});
+        //})
+        //.catch(error => {
+          //this.setState({loading: false, purchasing: false});
+        //})
   }
 
   render () {
