@@ -3,7 +3,7 @@ import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
-  console.log(props); //I do not have access to the Route object, if needed use { withRoute } component
+  //console.log(props); I do not have access to the Route object, if needed use { withRoute } component
 
   let transformedIngredients = Object.keys(props.ingredients)
     .map(igKey => {
