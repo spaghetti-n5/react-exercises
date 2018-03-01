@@ -58,7 +58,7 @@ class ContactData extends Component {
           ]
         },
         value: ''
-      },
+      }
     },
     loading: false
   }
@@ -79,7 +79,7 @@ class ContactData extends Component {
         })
         .catch(error => {
           this.setState({loading: false});
-        })
+        });
   }
 
   render() {
@@ -93,7 +93,6 @@ class ContactData extends Component {
 
     let form = (
       <form>
-        <Input elementType="..." elementConfig="..." value="..." />
         {formElementsArray.map(formElement => (
           <Input
             key={formElement.id}
