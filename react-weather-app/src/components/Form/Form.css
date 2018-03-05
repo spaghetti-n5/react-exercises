@@ -1,0 +1,17 @@
+.Form {
+text-align: center;
+margin: 10px;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.Button {
+  cursor: pointer;
+  padding: 10px;
+  margin: 5px;
+}
