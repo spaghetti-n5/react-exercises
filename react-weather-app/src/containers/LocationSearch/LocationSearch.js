@@ -7,16 +7,23 @@ class LocationSearch extends Component {
     inputValue: ""
   }
 
+  /*componentDidMount() {
+    console.log(this.props);
+  }*/
+
   inputChangedHandler = (event) => {
     const updatedInput = event.target.value;
     this.setState({inputValue: updatedInput})
-    console.log(updatedInput);
+    //console.log(updatedInput);
   }
 
-
   inputSubmitHandler = (event) => {
-    alert('Submitted: ' + this.state.inputValue);
     event.preventDefault();
+    //Passing the inputValue of the user as query params
+    this.props.history.push({
+        pathname:'/weather',
+        search:'?city=' + this.state.inputValue
+      });
   }
 
   render() {
