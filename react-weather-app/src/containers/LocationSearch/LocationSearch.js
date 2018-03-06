@@ -13,10 +13,18 @@ class LocationSearch extends Component {
     console.log(updatedInput);
   }
 
+
+  inputSubmitHandler = (event) => {
+    alert('Submitted: ' + this.state.inputValue);
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
-        <Form changed={this.inputChangedHandler} value={this.state.inputValue}/>
+        <Form changed={this.inputChangedHandler}
+              value={this.state.inputValue}
+              submitted={this.inputSubmitHandler}/>
       </div>
     );
   }
