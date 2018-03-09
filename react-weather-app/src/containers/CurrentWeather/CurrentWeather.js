@@ -26,7 +26,7 @@ class CurrentWeather extends Component {
     }
 
     //Current weather API Request. The first weather condition in API respond is primary.
-    axios.get('https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=fdb4c75cbd6ca2deef4b9b0db49ace4a&q=' + city)
+    axios.get('https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=fdb4c75cbd6ca2deef4b9b0db49ace4a&units=metric&q=' + city)
         .then(response => {
           //console.log(response.data);
           this.setState({weather:response.data.weather[0].main,

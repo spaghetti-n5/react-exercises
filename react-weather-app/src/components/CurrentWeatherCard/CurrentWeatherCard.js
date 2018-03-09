@@ -43,7 +43,7 @@ const currentWeatherCard = (props) => {
         <h2>Current weather for <span style={{textTransform: 'capitalize'}}>{props.city}</span></h2>
         {weather}
         <p><strong>{props.weather} ({props.weatherDetail}</strong>)</p>
-        <p>Temperture: {props.temp} F</p>
+        <p>Temperture: {props.temp} °C</p>
         <p>Humidity: {props.humidity} %</p>
       </div>
     );
