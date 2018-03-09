@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+import CurrentWeatherCard from '../../components/CurrentWeatherCard/CurrentWeatherCard';
 
 class CurrentWeather extends Component {
   state = {
     inputValue: '',
     weather: '',
     temperature: 0,
-    humidity: 0
+    humidity: 0,
+    weatherId: 0,
+    weatherDetail: '',
+    error: false
   }
 
   componentDidMount () {
@@ -27,20 +31,35 @@ class CurrentWeather extends Component {
           //console.log(response.data);
           this.setState({weather:response.data.weather[0].main,
                          temperature:response.data.main.temp,
-                         humidity: response.data.main.humidity})
+                         humidity: response.data.main.humidity,
+                         weatherId: response.data.weather[0].id,
+                         weatherDetail:response.data.weather[0].description})
+                         //console.log(this.state.weatherId);
         })
         .catch(error => {
           console.log(error);
+          this.setState({error:true})
         });
   }
 
   render () {
+    let displayWeather = "";
+    //Problem instroducing city names related to be solved
+    if (this.state.error===true || this.state.inputValue==='' || this.state.inputValue==='city') {
+      displayWeather = <h2 style={{textAlign:'center'}}>City not found!</h2>
+    } else {
+      displayWeather = <CurrentWeatherCard
+                          city={this.state.inputValue}
+                          weather={this.state.weather}
+                          temp={this.state.temperature}
+                          humidity={this.state.humidity}
+                          weatherId={this.state.weatherId}
+                          weatherDetail={this.state.weatherDetail}/>
+    }
+
     return (
       <div>
-        <p>Current weather for: {this.state.inputValue}</p>
-        <p>{this.state.weather}</p>
-        <p>Temperature in F{this.state.temperature}</p>
-        <p>Humidity {this.state.temperature}</p>
+        {displayWeather}
       </div>
     );
   }

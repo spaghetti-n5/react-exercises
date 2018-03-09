@@ -7,9 +7,9 @@ class LocationSearch extends Component {
     inputValue: ""
   }
 
-  componentDidMount() {
+  /*componentDidMount() {
     console.log(this.props);
-  }
+  }*/
 
   inputChangedHandler = (event) => {
     const updatedInput = event.target.value;
