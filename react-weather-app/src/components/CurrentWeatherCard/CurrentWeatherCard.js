@@ -14,6 +14,7 @@ const currentWeatherCard = (props) => {
         <p><strong>{props.weather} ({props.weatherDetail}</strong>)</p>
         <p>Temperture: {props.temp} °C</p>
         <p>Humidity: {props.humidity} %</p>
+        <p>Wind: {props.wind} m/s</p>
       </div>
     );
 }

@@ -11,7 +11,6 @@ class Forecast extends Component {
   }
 
   componentDidMount () {
-    console.log("Forecast_componentDidMount", this.state.forecast);
     //Extracting the inputValue of the user from the query params
     const query = new URLSearchParams(this.props.location.search);
     let city = "";
@@ -34,19 +33,28 @@ class Forecast extends Component {
         });
   }
 
-  componentWillMount(){
+dataHandler = (d) => {
+  const days = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  let weekday = days[d.getDay()];
+  return (weekday)
+}
+  /*componentWillMount(){
       console.log("Forecast_componentWillMount", this.state.forecast);
-  }
+  }*/
 
   render () {
-    console.log("Forecast_ComponentRender", this.state.forecast);
+    //console.log("Forecast_ComponentRender", this.state.forecast);
     const weatherForecast = this.state.forecast.map(day => {
       return <ForecastWeatherCard key={day.dt}
                                   weather={day.weather[0].main}
                                   temp={day.main.temp}
                                   humidity={day.main.humidity}
                                   weatherId={day.weather[0].id}
-                                  weatherDetail={day.weather[0].description}/>
+                                  weatherDetail={day.weather[0].description}
+                                  weekday={this.dataHandler(new Date(day.dt_txt))}
+                                  day={day.dt_txt.slice(8,10)}
+                                  month={day.dt_txt.slice(5,7)}
+                                  year={day.dt_txt.slice(0,4)}/>
     });
 
     return (

@@ -9,6 +9,7 @@ class CurrentWeather extends Component {
     weather: '',
     temperature: 0,
     humidity: 0,
+    wind: 0,
     weatherId: 0,
     weatherDetail: '',
     error: false
@@ -28,12 +29,13 @@ class CurrentWeather extends Component {
     //Current weather API Request. The first weather condition in API respond is primary.
     axios.get('https://api.openweathermap.org/data/2.5/weather?id=524901&APPID=fdb4c75cbd6ca2deef4b9b0db49ace4a&units=metric&q=' + city)
         .then(response => {
-          //console.log(response.data);
+          console.log(response.data);
           this.setState({weather:response.data.weather[0].main,
                          temperature:response.data.main.temp,
                          humidity: response.data.main.humidity,
                          weatherId: response.data.weather[0].id,
-                         weatherDetail:response.data.weather[0].description})
+                         weatherDetail: response.data.weather[0].description,
+                         wind: response.data.wind.speed})
                          //console.log(this.state.weatherId);
         })
         .catch(error => {
@@ -54,7 +56,8 @@ class CurrentWeather extends Component {
                           temp={this.state.temperature}
                           humidity={this.state.humidity}
                           weatherId={this.state.weatherId}
-                          weatherDetail={this.state.weatherDetail}/>
+                          weatherDetail={this.state.weatherDetail}
+                          wind={this.state.wind}/>
     }
 
     return (
