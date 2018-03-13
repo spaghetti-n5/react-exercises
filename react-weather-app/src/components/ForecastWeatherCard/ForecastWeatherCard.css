@@ -1,0 +1,11 @@
+.ForecastWeather {
+  margin: 20px auto;
+  width: 25%;
+  text-align: center;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  padding-top: 20px;
+  box-sizing: border-box;
+  display: inline-block;
+
+}
