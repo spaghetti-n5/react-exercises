@@ -6,7 +6,7 @@ import utils from '../../utils/utils';
 const forecastWeatherCard = (props) => {
   let icon, alt;
   [icon, alt]= utils.getIcon(props.weatherId);
-  let weather = <img src={icon} alt={alt}/>
+  let weather = <img className={classes.imgForecastWeather} src={icon} alt={alt}/>
     return (
       <div className={classes.ForecastWeather}>
         <h2>{props.weekday}</h2>

@@ -7,5 +7,10 @@
   padding: 20px 0px;
   box-sizing: border-box;
   display: inline-block;
+}
 
+.imgForecastWeather {
+  width: 15%;
+  height: 20%;
+  margin: 5px;
 }

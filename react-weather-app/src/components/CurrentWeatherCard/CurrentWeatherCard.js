@@ -6,7 +6,7 @@ import utils from '../../utils/utils';
 const currentWeatherCard = (props) => {
   let icon, alt;
   [icon, alt]= utils.getIcon(props.weatherId);
-  let weather = <img src={icon} alt={alt}/>
+  let weather = <img className={classes.imgCurrentWeather} src={icon} alt={alt}/>
     return (
       <div className={classes.CurrentWeather}>
       <h2>Current weather for <span style={{textTransform: 'capitalize'}}>{props.city}</span></h2>
