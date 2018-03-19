@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 
-import Form from '../../components/Form/Form.js';
+import Form from '../../components/Form/Form';
+import { withRouter } from 'react-router-dom';
 
 class LocationSearch extends Component {
   state = {
     inputValue: ""
   }
 
-  /*componentDidMount() {
-    console.log(this.props);
-  }*/
-
   inputChangedHandler = (event) => {
-    const updatedInput = event.target.value;
-    this.setState({inputValue: updatedInput})
-    //console.log(updatedInput);
+    this.setState({inputValue: event.target.value})
   }
 
   inputSubmitHandler = (event) => {
@@ -37,4 +32,4 @@ class LocationSearch extends Component {
   }
 }
 
-export default LocationSearch;
+export default withRouter(LocationSearch);
