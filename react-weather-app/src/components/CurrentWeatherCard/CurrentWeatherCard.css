@@ -1,12 +1,11 @@
 .CurrentWeather {
   margin: 20px auto;
-  width: 50%;
+  width: 25%;
   text-align: center;
   box-shadow: 0 2px 3px #ccc;
   border: 1px solid #eee;
   padding: 5px;
   box-sizing: border-box;
-
 }
 
 .CurrentWeather p {
