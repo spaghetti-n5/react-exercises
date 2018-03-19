@@ -12,6 +12,26 @@ class Forecast extends Component {
     loading: true
   }
 
+  componentWillReceiveProps(newProps) {
+  const query = new URLSearchParams(newProps.location.search);
+  let city = "";
+  for (let param of query.entries()) {
+    this.setState({inputValue: param[1]});
+    city = param[1];
+  }
+  axios.get('https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=fdb4c75cbd6ca2deef4b9b0db49ace4a&units=metric&q=' + city)
+    .then(response => {
+      let forecastData = [];
+      forecastData.push(response.data.list[8], response.data.list[16], response.data.list[24], response.data.list[32]);
+      this.setState({forecast: forecastData})
+      console.log("Forecast_WillReceiveProps",response.data);
+      })
+    .catch(error => {
+      console.log(error);
+      this.setState({error:true})
+    });
+}
+
   componentDidMount () {
     //Extracting the inputValue of the user from the query params
     const query = new URLSearchParams(this.props.location.search);
@@ -23,12 +43,13 @@ class Forecast extends Component {
     //5 day forecast API Request
     axios.get('https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=fdb4c75cbd6ca2deef4b9b0db49ace4a&units=metric&q=' + city)
         .then(response => {
+          console.log("Forecast_DidMount",response.data);
           let forecastData = [];
           forecastData.push(response.data.list[8], response.data.list[16], response.data.list[24], response.data.list[32]);
           this.setState({forecast: forecastData, loading: false})
           })
         .catch(error => {
-          console.log(error);
+          //console.log(error);
           this.setState({error:true})
         });
   }
