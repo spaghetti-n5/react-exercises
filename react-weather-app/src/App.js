@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import './App.css';
 import CurrentWeather from './containers/CurrentWeather/CurrentWeather';
 import Forecast from './containers/Forecast/Forecast';
-import Layout from './containers/Layout/Layout';
+import Layout from './components/Layout/Layout';
 import Home from './components/Home';
 
 class App extends Component {
