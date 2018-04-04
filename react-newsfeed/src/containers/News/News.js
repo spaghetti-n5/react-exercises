@@ -5,7 +5,8 @@ import NewsItem from './../../components/NewsItem/NewsItem';
 
 class News extends Component {
   state = {
-    news: []
+    news: [],
+    error: false
   }
 
   componentDidMount () {
@@ -17,22 +18,28 @@ class News extends Component {
          })
          .catch(error => {
            console.log(error);
+           this.setState({error:true});
          });
   }
 
   render () {
-    const news = this.state.news.map(article => {
-      return (
-        <NewsItem
-          key={article.title}
-          title={article.title}
-          description={article.description}
-          image={article.urlToImage}
-          author={article.author}
-          source={article.source.name}
-          date={article.publishedAt}/>
-      );
-    });
+    let news = "";
+    if (this.state.error) {
+      news = <p style={{textAlign:'center'}}>Something went wrong!</p>
+    } else {
+      news = this.state.news.map(article => {
+        return (
+          <NewsItem
+            key={article.title}
+            title={article.title}
+            description={article.description}
+            image={article.urlToImage}
+            author={article.author}
+            source={article.source.name}
+            /*date={article.publishedAt}*//>
+        );
+      });
+    }
 
     return (
       <div>
