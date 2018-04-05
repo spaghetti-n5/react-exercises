@@ -29,14 +29,16 @@ class News extends Component {
     } else {
       news = this.state.news.map(article => {
         return (
-          <NewsItem
-            key={article.title}
-            title={article.title}
-            description={article.description}
-            image={article.urlToImage}
-            author={article.author}
-            source={article.source.name}
-            /*date={article.publishedAt}*//>
+          <a href={article.url} target="_blank" key={article.title}
+             style={{textDecoration:'none', color:'black'}}>
+            <NewsItem
+              key={article.title}
+              title={article.title}
+              description={article.description}
+              image={article.urlToImage}
+              author={article.author}
+              source={article.source.name} />
+          </a>
         );
       });
     }
