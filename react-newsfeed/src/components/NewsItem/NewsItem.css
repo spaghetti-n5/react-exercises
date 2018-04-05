@@ -5,14 +5,14 @@ article {
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    width: 60%;
+    width: 50%;
     padding: 20px 0;
 }
 
 .Text {
   flex-direction: column;
   margin: 0 30px;
-  width: 458px;
+  width: auto;
   text-align: justify;
 }
 
