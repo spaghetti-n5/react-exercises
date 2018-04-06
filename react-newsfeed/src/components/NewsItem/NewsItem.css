@@ -21,9 +21,10 @@ article {
   font-size: 24px;
 }
 
-img {
+ div img {
   width: 262px;
-  height: 220px;
+  padding-top: 10px;
+  height: auto;
 }
 
 @media (max-width: 600px) {
@@ -32,14 +33,36 @@ img {
     display: block;
     padding: 0px;
     border-top: 0px;
+    height: auto;
   }
-  img {
+  div img {
     width: 100%;
   }
   .Text {
     font-size: 14px;
     display: block;
-    width: 95%;
+    width: 90%;
+    margin: auto;
+  }
+  .Text h3 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  article {
+    width: 70%;
+    display: block;
+    height: auto;
+    border: 2px solid #d9d9d9;
+    padding: 20px;
+  }
+  div img {
+    width: 100%;
+  }
+  .Text {
+    padding: 15px;
+    display: block;
     margin: auto;
   }
   .Text h3 {
