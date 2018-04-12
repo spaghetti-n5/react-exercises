@@ -1,0 +1,46 @@
+.Header {
+  text-align: center;
+  height: 140px;
+  width:100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color:#225B67;
+}
+
+.Dropbtn {
+    background-color: white;
+    width: 140px;
+    height: 40px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.Dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.DropdownContent {
+    position: absolute;
+}
+
+.Dropdown:hover .dropdownContent {
+    display: block;
+}
+
+.Dropdown:hover .Dropbtn {
+    font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+}
+
+h2 {
+  text-align: center;
+  padding: 10px;
+}
